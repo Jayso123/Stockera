@@ -48,12 +48,12 @@ function CustomNavBar({ state, descriptors, navigation }: BottomTabBarProps) {
             style={[
               styles.tabItem,
               isFocused && {
-                backgroundColor: "#00ff00",
+                backgroundColor: "#e93336",
                 borderRadius: 20,
               },
             ]}
           >
-            {getItemByRouteName(route.name, isFocused ? "white" : "black", 20)}
+            {getItemByRouteName(route.name, "white", 20)}
             {isFocused && (
               <Animated.Text
                 entering={FadeIn.duration(200)}
@@ -93,14 +93,14 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     bottom: 30,
-    width: "80%",
+    width: "75%",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
     borderRadius: 30,
     padding: 12,
-    backgroundColor: "#98fb98",
+    backgroundColor: "#3e4098",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   },
   tabItem: {
     flexDirection: "row",
-    height: 36,
+    height: 38,
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 14,

@@ -1,4 +1,5 @@
-import { Text, View } from "react-native";
+import { router } from "expo-router";
+import { Button, Text, TouchableOpacity, View } from "react-native";
 
 export default function profile() {
   return (
@@ -10,6 +11,9 @@ export default function profile() {
       }}
     >
       <Text>profile</Text>
+      <TouchableOpacity>
+        <Button title="Logout" onPress={() => router.push("/auth/login")} />
+      </TouchableOpacity>
     </View>
   );
 }
