@@ -13,7 +13,7 @@ const index = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/images/App-icon.png")}
+        source={require("../assets/images/profile.png")}
         style={styles.logo}
         resizeMode="contain"
       />
