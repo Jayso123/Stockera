@@ -1,14 +1,15 @@
-import { Text, View, Image, ImageBackground } from "react-native";
+import { Text, View, Image, ImageBackground, FlatList } from "react-native";
 import { StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function home() {
   return (
-    <View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <View style={Styles.uprScrn}>
         <Image
           source={require("../../assets/images/App-icon.png")}
-          style={{ width: 50, height: 50, top: 34, left: 10 }}
+          style={{ width: 50, height: 50, top: 14, left: 10 }}
         />
         <Ionicons
           name="notifications"
@@ -17,11 +18,21 @@ export default function home() {
           style={Styles.notificationIcon}
         />
       </View>
-      <View style={Styles.cards}>
-        <Text style={Styles.cardText}>Card 1</Text>
-        <Text style={Styles.cardCount}>Card 2</Text>
-      </View>
-    </View>
+      <FlatList
+        data={[
+          { id: "1", title: "Card 1", count: 10 },
+          { id: "2", title: "Card 2", count: 20 },
+          { id: "3", title: "Card 3", count: 30 },
+        ]}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={Styles.cards}>
+            <Text style={Styles.cardText}>{item.title}</Text>
+            <Text style={Styles.cardCount}>{item.count} items</Text>
+          </View>
+        )}
+      />
+    </SafeAreaView>
   );
 }
 
@@ -33,7 +44,7 @@ const Styles = StyleSheet.create({
   },
   notificationIcon: {
     position: "relative",
-    top: 45,
+    top: 20,
     right: 10,
   },
   cards: {},

@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Animated,
   Platform,
+  Image,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
@@ -14,17 +15,6 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Svg, { Path, Circle, Rect } from "react-native-svg";
 import { User } from "lucide-react-native";
 import { router } from "expo-router";
-
-function LogoIcon() {
-  return (
-    <Svg width={56} height={56} viewBox="0 0 56 56" fill="none">
-      <Circle cx="20" cy="16" r="12" fill="#6C63FF" />
-      <Circle cx="36" cy="16" r="12" fill="#E84D8A" />
-      <Circle cx="20" cy="32" r="12" fill="#2DC1C1" />
-      <Circle cx="36" cy="32" r="12" fill="#6C63FF" />
-    </Svg>
-  );
-}
 
 function GoogleIcon() {
   return (
@@ -107,7 +97,10 @@ export default function login() {
 
       <View style={styles.content}>
         <View style={styles.logoContainer}>
-          <LogoIcon />
+          <Image
+            source={require("../../assets/images/App-icon.png")}
+            style={{ width: 60, height: 60 }}
+          />
         </View>
 
         <Text style={styles.welcomeTitle}>Welcome!</Text>
@@ -144,7 +137,7 @@ export default function login() {
             testID="login-button"
           >
             <LinearGradient
-              colors={["#7B6CF6", "#8A7DF7", "#9B8FF8"]}
+              colors={["#46A46D", "#46A46D", "#46A46D"]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={styles.loginButton}
